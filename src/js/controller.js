@@ -34,7 +34,7 @@ const controlRecipes = async function () {
     // 3) Updating bookmarks view
     bookmarksView.update(model.state.bookmarks);
   } catch (err) {
-    console.log(err);
+    console.error(err);
     recipeView.renderError();
   }
 };
@@ -57,7 +57,7 @@ const controlSearchResults = async function () {
     // 4) Render initial pagination buttons
     paginationView.render(model.state.search);
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -109,6 +109,12 @@ const controlAddRecipe = async function (newRecipe) {
 
     // Success Message
     addRecipeView.renderMessage();
+
+    // Render bookmar view
+    bookmarksView.render(model.state.bookmarks);
+
+    // Change ID in URL
+    window.history.pushState(null, '', `#${model.state.recipe.id}`)
 
     // Close form window
     setTimeout(function () {
