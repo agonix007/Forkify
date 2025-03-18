@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Recipe application",
   "source": "index.html",
+  "browserslist": "last 2 versions, > 0.5% and ie >= 11",
   "scripts": {
     "start": "parcel",
     "build": "parcel build"
